@@ -17,8 +17,15 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+      
+      - name: Cache SonarQube packages # Action 3
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
 
-      - name: Configuration Java # Action 3
+      - name: Configuration Java 
         uses: actions/setup-java@v4
         with:
           distribution: 'corretto'
