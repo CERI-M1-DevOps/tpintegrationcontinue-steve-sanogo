@@ -19,5 +19,8 @@ jobs:
           distribution: 'corretto'
           java-version: '21'
 
-      - name: Build with Maven # Action 3
-        run: mvn -B package
+      - name: Analyse SonarCloud avec Maven
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar \
+          -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
