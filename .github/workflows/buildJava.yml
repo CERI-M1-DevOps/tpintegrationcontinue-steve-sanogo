@@ -1,9 +1,6 @@
 name: Java CI with Maven - Test and package # Nom du Workflow
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [pull_request]
 
 jobs:
   build: # type de job
