@@ -257,3 +257,29 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
     }
 }
+
+@Test
+        void echangerDeuxReferencesIdentiquesNeChangeRien() {
+            listeATester.ajout(1);
+            listeATester.ajout(2);
+            Noeud noeud = listeATester.tete;
+            listeATester.echanger(noeud, noeud);
+            assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+    }
+    @Test
+    void supprimePremierElementNonPresent() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        listeATester.supprimePremier(500); 
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(3, listeATester.getSize());
+    }
+
+    @Test
+    void modifiePremierPremierElementListeUnElement() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        listeATester.modifiePremier(450, 42);
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
