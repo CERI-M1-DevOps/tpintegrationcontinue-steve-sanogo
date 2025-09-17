@@ -256,9 +256,7 @@ class ListeSimpleTest {
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
     }
-}
-
-@Test
+    @Test
         void echangerDeuxReferencesIdentiquesNeChangeRien() {
             listeATester.ajout(1);
             listeATester.ajout(2);
@@ -283,3 +281,5 @@ class ListeSimpleTest {
         listeATester.ajout(3);
         listeATester.modifiePremier(450, 42);
         assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+
+}
