@@ -19,7 +19,7 @@ jobs:
             ${{ runner.os }}-maven-
       
       - name: Cache SonarQube packages # Action 3
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
